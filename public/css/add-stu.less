@@ -1,0 +1,154 @@
+.form-horizontal {
+  position: relative;
+  width: 500px;
+  margin-left: 100px;
+
+  .form-group {
+    position: relative;
+
+    .glyphicon {
+      position: absolute;
+      left: 440px;
+      top: 7px;
+      color: #5cb85c;
+      display: none;
+    }
+  }
+
+  .submit {
+    position: relative;
+    .commit {
+      width: 200px;
+      margin: 20px 180px;
+
+      .suc {
+        display: none;
+      }
+
+      span {
+        display: inline-block;
+        height: 12px;
+        width: 3px;
+        background: white;
+      }
+
+      .suc1 {
+        animation: move 1s linear infinite;
+      }
+
+      .suc2 {
+        animation: move 1s linear .3s infinite;
+      }
+
+      .suc3 {
+        animation: move 1s linear .6s infinite;
+      }
+
+      .suc4 {
+        animation: move 1s linear .9s infinite;
+      }
+
+      @keyframes move {
+        0% {
+          transform: scaleY(.6);
+        }
+        50% {
+          transform: scaleY(1.4);
+        }
+        100% {
+          transform: scaleY(.6);
+        }
+      }
+    }
+  }
+
+  .g-success {
+    position: absolute;
+    left: 395px;
+    top: 28px;
+    color: #5cb85c;
+    display: none;
+  }
+
+  .address {
+    display: inline-block;
+    width: 100px;
+    margin: 0 8px;
+  }
+
+  .major {
+    display: inline-block;
+    width: 155px;
+    margin: 0 8px;
+  }
+
+  .addr-detail {
+    margin-top: 15px;
+  }
+
+  .stu-photo {
+    label {
+      display: block;
+      width: 100px;
+    }
+
+    .ava-img {
+      display: block;
+      margin-top: 10px;
+      margin-left: 15px;
+      width: 120px;
+      height: 120px;
+    }
+
+    .select_file {
+      display: none;
+    }
+
+    button {
+      margin-top: 20px;
+      margin-left: 15px;
+      outline: none;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .addr-detail {
+      margin-top: 15px;
+      float: right;
+    }
+
+    .commit {
+      width: 200px;
+      margin: 20px 180px;
+    }
+
+    .stu-photo {
+      position: absolute;
+      left: 560px;
+      top: 0;
+      width: 200px;
+      label {
+        display: block;
+        width: 100px;
+      }
+
+      .ava-img {
+        display: block;
+        margin-top: 46px;
+        margin-left: 30px;
+        width: 120px;
+        height: 120px;
+      }
+
+      .select_file {
+        display: none;
+      }
+
+      button {
+        margin-top: 20px;
+        margin-left: 30px;
+        outline: none;
+      }
+    }
+  }
+}

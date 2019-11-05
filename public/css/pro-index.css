@@ -1,0 +1,24 @@
+.container {
+  margin-bottom: 20px;
+}
+.container .form-control {
+  display: inline-block;
+  width: 150px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.container .sch-query {
+  display: inline-block;
+  margin-left: 10px;
+}
+.container .result {
+  display: inline-block;
+  margin-left: 25px;
+}
+.table {
+  text-align: center;
+}
+.table th {
+  text-align: center;
+}
+/*# sourceMappingURL=pro-index.css.map */

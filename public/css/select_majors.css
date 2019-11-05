@@ -1,0 +1,39 @@
+.table th {
+  text-align: center;
+}
+.table td {
+  vertical-align: middle !important;
+}
+.table .glyphicon {
+  cursor: pointer;
+}
+.table .glyphicon-pencil {
+  color: #337ab7;
+}
+.table .glyphicon-remove {
+  color: #d9534f;
+}
+.form-horizontal {
+  margin-bottom: 15px;
+}
+.form-horizontal .form-group {
+  float: left;
+  width: 800px;
+}
+.form-horizontal .form-group .major {
+  width: 200px;
+  display: inline-block;
+  margin: 0 20px;
+  text-align: center;
+}
+.form-horizontal .form-group .show-msg {
+  margin-top: 4px;
+  margin-left: -25px;
+  color: red;
+  display: none;
+}
+.form-horizontal .select-btn {
+  float: left;
+  margin-top: -2px;
+}
+/*# sourceMappingURL=select_majors.css.map */

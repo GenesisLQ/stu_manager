@@ -1,0 +1,90 @@
+{{extend './layout.html'}}
+{{block 'head'}}
+<link rel="stylesheet" href="/public/css/sch-unchecked.css">
+<link rel="stylesheet" href="/public/css/checked.css">
+{{/block}}
+
+{{block 'side'}}
+<li><a href="/province-index">全省学生信息统计</a></li>
+<li class="active"><a href="/checked">审核<span class="sr-only">(current)</span></a></li>
+<li><a href="/majors">专业库</a></li>
+{{/block}}
+
+{{block 'main'}}
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+  <h1 class="page-header">审核</h1>
+  <div class="g-check">
+    <button type="button" class="btn btn-primary check">允许注册</button>
+    <button type="button" class="btn btn-primary unchecked">不能注册</button>
+  </div>
+  <div class="success">
+    <button type="button" class="btn btn-primary unchecked">注册成功</button>
+    <span class="glyphicon glyphicon-ok"></span>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+    <tr class="active">
+      <th><input type="checkbox" id="check-all"></th>
+      <th>学号</th>
+      <th>姓名</th>
+      <th>性别</th>
+      <th>身份证号</th>
+      <th>学校</th>
+      <th>专业</th>
+      <th>年级</th>
+      <th>入学时间</th>
+      <th>状态</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{each students}}
+    {{if $value.status === 2 || $value.status === 0}}
+    {{else}}
+    <tr>
+      <td><input type="checkbox" class="select" value="{{$value.id}}"></td>
+      <td><a class="no" data-toggle="modal" data-target="#stu-info" title="点击查看学生个人信息">{{$value.no}}</a></td>
+      <td>{{$value.name}}</td>
+      {{if $value.gender === 0}}
+      <td>男</td>
+      {{else if $value.gender === 1}}
+      <td>女</td>
+      {{/if}}
+      <td>{{$value.idcard}}</td>
+      <td>{{$value.school}}</td>
+      <td>{{$value.major_name}}</td>
+      <td>{{$value.grade}}</td>
+      <td>{{entrance_time[$index]}}</td>
+      {{if $value.status === 1}}
+      <td class="checking">审核中</td>
+      {{/if}}
+    </tr>
+    {{/if}}
+    {{/each}}
+    </tbody>
+  </table>
+</div>
+
+<div class="modal fade" id="stu-info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">学生个人信息</h4>
+      </div>
+      <div class="modal-body">
+        <label class="col-sm-2 control-label">家庭住址</label>
+        <p class="address"></p>
+        <label class="col-sm-2 control-label">学生照片</label>
+        <img class="ava-img img-thumbnail" src="/public/img/2.jpeg" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+{{/block}}
+
+{{block 'scripts'}}
+<script src="/public/js/sch-unchecked.js"></script>
+<script src="/public/js/checked.js"></script>
+{{/block}}
+

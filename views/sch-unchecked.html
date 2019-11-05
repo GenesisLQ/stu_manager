@@ -1,0 +1,59 @@
+{{extend './layout.html'}}
+{{block 'head'}}
+<link rel="stylesheet" href="/public/css/sch-unchecked.css">
+{{/block}}
+
+{{block 'side'}}
+<li><a href="/school-index">已注册学生信息</a></li>
+<li class="active"><a href="/sch_unchecked">未注册的学生<span class="sr-only">(current)</span></a></li>
+<li><a href="/select_majors">专业库</a></li>
+<li><a href="/add_stu">录入学生</a></li>
+{{/block}}
+
+{{block 'main'}}
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+  <h1 class="page-header">未注册的学生</h1>
+  <button type="button" class="btn btn-primary apply">申请注册</button>
+  <table class="table table-bordered">
+    <thead>
+    <tr class="active">
+      <th><input type="checkbox" id="check-all"></th>
+      <th>学号</th>
+      <th>姓名</th>
+      <th>身份证号</th>
+      <th>专业</th>
+      <th>年级</th>
+      <th>状态</th>
+      <th>编辑</th>
+      <th>删除</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{each students}}
+    {{if $value.status === 2}}
+    {{else}}
+    <tr>
+      <td><input type="checkbox" class="select" value="{{$value.id}}"></td>
+      <td>{{$value.no}}</td>
+      <td>{{$value.name}}</td>
+      <td>{{$value.idcard}}</td>
+      <td>{{$value.major_name}}</td>
+      <td>{{$value.grade}}</td>
+      {{if $value.status === 0}}
+      <td class="unchecked">未审核</td>
+      {{else if $value.status === 1}}
+      <td class="checking">审核中</td>
+      {{/if}}
+      <td><span class="glyphicon glyphicon-pencil"></span></td>
+      <td><span class="glyphicon glyphicon-remove"></span></td>
+    </tr>
+    {{/if}}
+    {{/each}}
+    </tbody>
+  </table>
+</div>
+{{/block}}
+
+{{block 'scripts'}}
+<script src="/public/js/sch-unchecked.js"></script>
+{{/block}}

@@ -1,0 +1,16 @@
+.table {
+  text-align: center;
+}
+.table th {
+  text-align: center;
+}
+.table .glyphicon {
+  cursor: pointer;
+}
+.table .glyphicon-pencil {
+  color: #337ab7;
+}
+.table .glyphicon-remove {
+  color: #d9534f;
+}
+/*# sourceMappingURL=major.css.map */

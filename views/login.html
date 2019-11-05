@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>登录</title>
+	<link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="/public/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/public/css/login.css">
+</head>
+
+<body>
+<div class="jumbotron login">
+	<a href="/">
+		<img src="/public/img/logo.svg" alt="">
+	</a>
+	<h3>登录</h3>
+	<form id="login_form">
+		<div class="form-group">
+			<label>角色</label>
+			<select class="form-control" name="role">
+				<option value="0">省级</option>
+				<option value="1">学校</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label>邮箱</label>
+			<input type="email" class="form-control" name="email" placeholder="Email" autofocus>
+		</div>
+		<div class="form-group">
+			<label>密码</label>
+			<input type="password" class="form-control" name="password" placeholder="Password">
+		</div>
+		<button type="submit" class="btn btn-primary btn-lg">登录</button>
+	</form>
+	<p><a class="login-tip" href="/register">还没有账号？立即注册</a></p>
+</div>
+</body>
+
+<script src="/public/js/jquery.js"></script>
+<script src="/public/js/login.js"></script>
+
+</html>

@@ -1,0 +1,71 @@
+{{extend './layout.html'}}
+
+{{block 'head'}}
+<link rel="stylesheet" href="/public/css/select_majors.css">
+{{/block}}
+
+{{block 'side'}}
+<li><a href="/school-index">已注册学生信息</a></li>
+<li><a href="/sch_unchecked">未注册的学生</a></li>
+<li class="active"><a href="/select_majors">专业库<span class="sr-only">(current)</span></a></li>
+<li><a href="/add_stu">录入学生</a></li>
+{{/block}}
+
+{{block 'main'}}
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+  <h1 class="page-header">专业库</h1>
+  <!-- 从省级数据库选择专业 -->
+  <form id="select-majors" class="form-horizontal clearfix">
+    <div class="form-group">
+      <div class="col-sm-10">
+        专业类别
+        <select name="mtype" id="mtype" class="form-control major">
+          <!-- 查询专业渲染到页面上 -->
+          <option> -- 请选择 --</option>
+          {{each majors}}
+          <option value="{{$value}}">{{$value}}</option>
+          {{/each}}
+        </select>
+        专业名称
+        <select name="mname" id="mname" class="form-control major">
+          <option> -- 请选择 --</option>
+        </select>
+      </div>
+      <div class="col-sm-2">
+        <p class="show-msg">该专业已存在！</p>
+      </div>
+    </div>
+    <button type="submit" class=" btn btn-primary select-btn">添加</button>
+  </form>
+
+  <!-- 学校专业库列表 -->
+  <div class="table-responsive">
+    <table class="table table-bordered" style="text-align: center">
+      <thead>
+      <tr class="active">
+        <th>#</th>
+        <th>专业类别</th>
+        <th>专业名称</th>
+        <th>编辑</th>
+        <th>删除</th>
+      </tr>
+      </thead>
+      <tbody>
+      {{each s_majors}}
+      <tr>
+        <td>{{$index}}</td>
+        <td>{{$value.mtype}}</td>
+        <td>{{$value.mname}}</td>
+        <td><span class="glyphicon glyphicon-pencil"></span></td>
+        <td><span class="glyphicon glyphicon-remove"></span></td>
+      </tr>
+      {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
+{{/block}}
+
+{{block 'scripts'}}
+<script src="/public/js/select_majors.js"></script>
+{{/block}}

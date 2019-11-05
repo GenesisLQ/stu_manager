@@ -1,0 +1,30 @@
+.apply {
+  display: inline-block;
+  margin-bottom: 25px;
+  margin-right: 20px;
+}
+.table {
+  text-align: center;
+}
+.table th {
+  text-align: center;
+}
+.table td {
+  vertical-align: middle !important;
+}
+.table .unchecked {
+  color: #d9534f;
+}
+.table .checking {
+  color: #f0ad4e;
+}
+.table .glyphicon {
+  cursor: pointer;
+}
+.table .glyphicon-pencil {
+  color: #337ab7;
+}
+.table .glyphicon-remove {
+  color: #d9534f;
+}
+/*# sourceMappingURL=sch-unchecked.css.map */

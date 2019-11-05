@@ -1,0 +1,125 @@
+{{extend './layout.html'}}
+{{block 'head'}}
+<link rel="stylesheet" href="/public/css/add-stu.css">
+{{/block}}
+
+{{block 'side'}}
+<li><a href="/school-index">已注册学生信息</a></li>
+<li><a href="/sch_unchecked">未审核的学生</a></li>
+<li><a href="/select_majors">专业库</a></li>
+<li class="active"><a href="/add_stu">录入学生<span class="sr-only">(current)</span></a></li>
+{{/block}}
+
+{{block 'main'}}
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+  <h1 class="page-header">录入学生信息</h1>
+  <form id="add-stu" class="form-horizontal" enctype="multipart/form-data">
+    <div class="form-group">
+      <label class="col-sm-2 control-label">学号</label>
+      <div class="col-sm-10">
+        <input type="text" name="no" id="no" class="form-control" placeholder="No.">
+        <span class="glyphicon glyphicon-ok g-no"></span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">姓名</label>
+      <div class="col-sm-10">
+        <input type="text" name="name" id="name" class="form-control" placeholder="Name">
+        <span class="glyphicon glyphicon-ok g-name"></span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">性别</label>
+      <div class="col-sm-10">
+        <label class="radio-inline">
+          <input type="radio" name="gender" value="0" checked> 男
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="gender" value="1"> 女
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">身份证号</label>
+      <div class="col-sm-10">
+        <input type="text" name="idcard" id="idcard" class="form-control" placeholder="ID">
+        <span class="glyphicon glyphicon-ok g-idcard"></span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">家庭住址</label>
+      <div class="col-sm-10">
+        省 <select class="form-control address" id="province" name="address">
+        <option>-- 请选择 --</option>
+      </select>
+        市 <select class="form-control address" id="city" name="address">
+        <option>-- 请选择 --</option>
+      </select>
+        县 <select class="form-control address" id="area" name="address">
+        <option>-- 请选择 --</option>
+      </select>
+        <span class="glyphicon glyphicon-ok g-addr"></span>
+      </div>
+      <div class="col-sm-10  addr-detail">
+        <input type="text" name="address" id="address" class="form-control" placeholder="详细地址">
+        <span class="glyphicon glyphicon-ok g-addr-details"></span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">专业</label>
+      <div class="col-sm-10">
+        类别 <select class="form-control major" id="mtype" name="major_type">
+        <option>-- 请选择 --</option>
+        {{each mtype}}
+        <option>{{$value}}</option>
+        {{/each}}
+      </select>
+        名称 <select class="form-control major" id="mname" name="major_name">
+        <option>-- 请选择 --</option>
+        {{each mname}}
+        <option>{{$value}}</option>
+        {{/each}}
+      </select>
+        <span class="glyphicon glyphicon-ok g-major"></span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">年级</label>
+      <div class="col-sm-10">
+        <input type="text" name="grade" id="grade" class="form-control" placeholder="2019">
+        <span class="glyphicon glyphicon-ok g-grade"></span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">入学时间</label>
+      <div class="col-sm-10">
+        <input type="date" name="entrance_time" id="entrance_time" class="form-control">
+        <span class="glyphicon glyphicon-ok g-time"></span>
+      </div>
+    </div>
+    <div class="form-group stu-photo">
+      <label class="col-sm-2 control-label">学生照片</label>
+      <img class="ava-img img-thumbnail" src="/public/img/2.jpeg" alt="">
+      <input class="select_file" type="file" name="avatar">
+      <button type="button" class="upload btn btn-default">选择照片</button>
+    </div>
+    <div class="submit">
+      <button type="submit" class="btn btn-primary commit">
+        <div class="add-text">立即录入</div>
+        <div class="suc">
+          <span class="suc1"></span>
+          <span class="suc2"></span>
+          <span class="suc3"></span>
+          <span class="suc4"></span>
+        </div>
+      </button>
+      <span class="glyphicon glyphicon-ok g-success"></span>
+    </div>
+  </form>
+</div>
+{{/block}}
+
+{{block 'scripts'}}
+<script src="/node_modules/select-plugin/select-plugin-all.js"></script>
+<script src="/public/js/add-stu.js"></script>
+{{/block}}
